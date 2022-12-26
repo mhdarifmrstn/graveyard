@@ -28,6 +28,9 @@ async def astaroth_remaining_cards(_, message: Message):
     astaroth_game[chat_id].set_played_numbers(message)
     astaroth_game[chat_id].set_unplayed_numbers(message)
 
+  elif message.text.find("+-+-+-+-") != -1:
+    astaroth_game[chat_id].update_init_numbers(message)
+
 async def init():
   await user_account.start()
   user = await user_account.get_me()
